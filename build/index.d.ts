@@ -3,8 +3,6 @@ import Cookies from "js-cookie";
 
 export interface CookieConsentProps {
   location?: "top" | "bottom" | "none";
-  sameSite?: "strict" | "lax" | "none";
-  cookieSecurity?: boolean;
   style?: object;
   buttonStyle?: object;
   declineButtonStyle?: object;
@@ -12,7 +10,7 @@ export interface CookieConsentProps {
   children?: React.ReactNode;
   disableStyles?: boolean;
   hideOnAccept?: boolean;
-  onAccept?: Function;
+  onAccept?: ({ acceptedByScrolling }: { acceptedByScrolling?: boolean }) => void;
   onDecline?: Function;
   buttonText?: Function | React.ReactNode;
   declineButtonText?: Function | React.ReactNode;
@@ -24,21 +22,17 @@ export interface CookieConsentProps {
   expires?: number;
   containerClasses?: string;
   contentClasses?: string;
-  buttonWrapperClasses?: string;
   buttonClasses?: string;
   declineButtonClasses?: string;
   buttonId?: string;
   declineButtonId?: string;
+  acceptOnScroll?: boolean;
+  acceptOnScrollPercentage?: number;
   extraCookieOptions?: object;
   disableButtonStyles?: boolean;
   enableDeclineButton?: boolean;
   flipButtons?: boolean;
-  ButtonComponent?: React.ElementType;
-  overlay?: boolean;
-  overlayClasses?: string;
-  overlayStyle?: object;
-  ariaAcceptLabel?: string;
-  ariaDeclineLabel?: string;
+  ButtonComponent?: Function | React.ReactElement;
 }
 
 export default class CookieConsent extends React.Component<CookieConsentProps, {}> {}
