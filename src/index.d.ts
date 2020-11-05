@@ -32,6 +32,7 @@ export interface CookieConsentProps {
   disableButtonStyles?: boolean;
   enableDeclineButton?: boolean;
   flipButtons?: boolean;
+  // @ts-ignore
   ButtonComponent?: Function | React.ReactElement;
 }
 
